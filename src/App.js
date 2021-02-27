@@ -3,10 +3,17 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Country from './components/Country/Country';
 import Cart from './components/Cart/Cart';
+import personData from './data/data.json';
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setCountry] = useState([]);
+  const [person, setPerson] = useState([]);
+
+  useEffect(() =>{
+    setPerson(personData)
+    console.log(personData);
+  }, [])
 
   useEffect(() =>{
     fetch('https://restcountries.eu/rest/v2/all')
